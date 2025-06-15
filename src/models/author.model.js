@@ -1,8 +1,8 @@
 const db = require('../config/db')
 
 const getAuthorById = async (authorId) => {
-    const[result] = await db.query('SELECT * FROM autor WHERE id = ?' [authorId])
-    if(result.lenght === 0) return null
+    const[result] = await db.query('SELECT * FROM autor WHERE id = ?', [authorId])
+    if(result.length === 0) return null
     return result[0]
 }
 

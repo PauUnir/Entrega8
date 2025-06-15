@@ -9,7 +9,7 @@ const getPostById = async (req, res) => {
     if(!result) return res.status(404)
         .json({message : 'The post does not exist'})
 
-    const authorResult = await author.getAuthorById(result.authorId)
+    const authorResult = await author.getAuthorById(result.autor_id)
     
     res.json({
         result,
@@ -17,21 +17,10 @@ const getPostById = async (req, res) => {
     })
 }
 
-const getPostsByCategory = async (req, res) => {
-    //Get posts using category
-    const [category] = req.params
-
-    const result = await post.selectByCategory(category)
-    if(!result) return res.status(404)
-        .json({message : 'There are no posts with this category'})
-
-    res.json(result)
-}
-
 const getPostsByAuthor = async (req, res) => {
-    const [authorId] = req.params
+    const {authorId} = req.params
 
-    const result = await post.selectByCategory(authorId)
+    const result = await post.getPostsByAuthor(authorId)
     if(!result) return res.status(404)
         .json({message : 'The author has no posts'})
 
@@ -57,6 +46,5 @@ const createPost = async (req, res) => {
 module.exports = { 
     getPostById,
     getPostsByAuthor,
-    getPostsByCategory,
     createPost
  }

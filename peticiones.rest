@@ -1,0 +1,30 @@
+@host = http://localhost:3000
+
+GET {{host}}/api/author/1
+
+###
+POST {{host}}/api/author
+Content-Type: application/json
+
+{
+    "name" : "Prueba 1",
+    "email" : "Email de prueba",
+    "image" : "Prueba"
+}
+
+###
+GET {{host}}/api/post/1
+
+###
+GET {{host}}/api/post/autor/1
+
+###
+POST {{host}}/api/post
+Content-Type: application/json
+
+{
+    "title" : "Prueba de Creacion",
+    "description" : "Prueba de Descripcion",
+    "authorId" : 1,
+    "category" : "Prueba"
+} 

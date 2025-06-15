@@ -1,4 +1,4 @@
-const { getPostById, createPost, getPostsByCategory } = require('../../controllers/post.controller');
+const { getPostById, createPost, getPostsByAuthor } = require('../../controllers/post.controller');
 
 const router = require('express').Router();
 
@@ -7,8 +7,7 @@ const router = require('express').Router();
 //GET
 router.get('/:postId', getPostById)
 
-router.get('/:category', getPostsByCategory)
-router.get('/authorId',)
+router.get('/autor/:authorId', getPostsByAuthor)
 
 
 //POST
